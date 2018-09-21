@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  location: MyString
+  size: MyString
+  budget: MyString
+  price: MyString
+  description: MyText
+  category: one
+  vendor_type: one
+
+two:
+  name: 
+  location: MyString
+  size: MyString
+  budget: MyString
+  price: MyString
+  description: MyText
+  category: two
+  vendor_type: two

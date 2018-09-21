@@ -1,0 +1,59 @@
+<%= form_with(model: vendor, local: true) do |form| %>
+  <% if vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% vendor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :vendor_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, id: :vendor_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size, id: :vendor_size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :budget %>
+    <%= form.text_field :budget, id: :vendor_budget %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :vendor_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :vendor_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%#= form.text_field :category_id, id: :vendor_category_id %>
+    <%= select("category", "category_id", Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: true })%>
+  </div>
+
+  <div class="field">
+    <%= form.label :vendor_type_id %>
+    <%#= form.text_field :vendor_type_id, id: :vendor_vendor_type_id %>
+    <%= select("vendor_type", "vendor_type_id", VendorType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
